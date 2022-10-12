@@ -11,13 +11,13 @@
 public class TowerOfHanoi {
 	
 	public static int play(int numOfRings, String fromPeg, String emptyPeg, String toPeg) {
-		if(numOfRings == 1) {
+		if(numOfRings == 1) {	// base case: one ring left
 			return move(fromPeg, toPeg);
 		} else {
 			int counter = 0;
-			counter += play(numOfRings - 1, fromPeg, toPeg, emptyPeg);
-			counter += move(fromPeg, toPeg);
-			counter += play(numOfRings - 1, emptyPeg, fromPeg, toPeg);
+			counter += play(numOfRings - 1, fromPeg, toPeg, emptyPeg);	// move all rings except for the bottom ring to B
+			counter += move(fromPeg, toPeg);	// move the bottom ring to C
+			counter += play(numOfRings - 1, emptyPeg, fromPeg, toPeg);	// move all rings currently on B to C and done
 			return counter;
 		}
 	}
