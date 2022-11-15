@@ -1,5 +1,3 @@
-package avl;
-
 import java.util.NoSuchElementException;
 
 /**
